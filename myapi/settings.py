@@ -75,12 +75,12 @@ WSGI_APPLICATION = 'myapi.wsgi.application'
 
 # db_from_env = dj_database_url.config(conn_max_age=500)
 # DATABASES['default'].update(db_from_env)
-
+# 'DATABASES' 설정에 PostgreSQL을 설정합니다.
 DATABASES = {
     'default': dj_database_url.config(conn_max_age=500)
 }
 
-# 기본값이 PostgreSQL로 설정되지 않은 경우, 로컬 환경에서 SQLite를 사용합니다.
+# 만약 'DATABASES'에 PostgreSQL 설정이 없다면, 로컬 환경에서 SQLite를 사용합니다.
 if not DATABASES['default']:
     DATABASES['default'] = {
         'ENGINE': 'django.db.backends.sqlite3',
